@@ -1,0 +1,143 @@
+/* Reset + Body */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Green Bar Header */
+.result-container::before {
+    content: "Test Feedback";
+    display: block;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 20px;
+    border-bottom: 6px solid #4CAF50;
+}
+
+/* Exit Test Button (top-right) */
+#logout-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f0ad4e;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Completion Message */
+.result-container > p:first-of-type {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    border: 1px solid #c8e6c9;
+    border-radius: 5px;
+}
+
+/* Main Result Box */
+.result-container {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 30px 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    margin: 80px auto 20px;
+    text-align: left;
+}
+
+.result-container h2 {
+    display: none; /* Hide original title */
+}
+
+/* Final Score Styling */
+#final-score {
+    font-size: 36px;
+    font-weight: bold;
+    color: #00796b;
+    margin-top: 20px;
+}
+
+/* Result Status (Pass/Fail) */
+#result-status {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00796b;
+    margin-top: 10px;
+}
+
+/* Topper message */
+#topper-message {
+    font-size: 20px;
+    color: #004d40;
+    margin-top: 10px;
+}
+
+/* Buttons styling */
+#answer-sheet-btn,
+#restart-btn {
+    background-color: #004d40;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 20px 10px 0;
+    cursor: pointer;
+}
+
+#restart-btn {
+    background-color: #00796b;
+}
+
+/* Answer Sheet Area */
+#answer-sheet-container {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.answer-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.answer-item h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
+.correct-answer {
+    color: #00796b;
+    font-weight: bold;
+}
+
+.user-answer {
+    font-weight: bold;
+}
+
+.incorrect {
+    color: #d32f2f;
+}

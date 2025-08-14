@@ -1,1 +1,1 @@
-# quiz-servers
+# quiz-server

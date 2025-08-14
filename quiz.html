@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Japan Foundation Test</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+
+            <div class="header-left">
+                <span id="question-heading">Question: 1</span>
+                <span><b>Section:</b> Script and Vocabulary</span>
+            </div>
+
+            <div class="header-center">
+                <span>Time Remaining</span>
+                <span id="timer"><i class="fas fa-clock"></i> 00:00:00</span>
+            </div>
+            <div class="header-right">
+                <button class="finish-btn" id="finish-btn">Finish Section</button>
+            </div>
+        </div>
+
+        <div class="test-info">
+            <div class="test-title"><b>Test: </b>Japan Foundation Test For basic japanees</div>
+            <div class="candidate-info">Candidate: <span id="candidate-name">101</span></div>
+        </div>
+
+        <div class="main-content">
+            <!-- यहाँ class fixed-sidebar थपियो -->
+            <div class="question-navigation fixed-sidebar" id="question-navigation-btns">
+            </div>
+
+            <div class="question-area">
+                <div class="question-prompt">
+                    <p>Question <span id="current-question-number">1</span>: Read the following passage and answer the question?</p>
+                </div>
+
+                <div class="language-options">
+                    <button class="language-btn"><i class="fa-light fa-image"></i> Your Language 1</button><br />
+                    <button class="language-btn"><i class="fa-thin fa-image"></i> Your Language 2</button>
+                </div>
+
+                <div id="questions-container"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-buttons">
+                <button id="prev-btn">Previous</button>
+                <button id="next-btn">Next</button>
+            </div>
+        </div>
+    </div>
+                            <!-- Confirmation Popup -->
+<div id="confirm-popup" class="confirm-popup-overlay hidden">
+   
+  <div class="confirm-popup">
+    <div class="confirmation-top-box">Confirm Finish</div>
+    
+    <div class="confirm-main-view">
+        <div class="finished-icon">
+            <div class="finished-icon-space"></div>
+            <div class="question-icons">
+                
+            </div>
+            <div class="finished-icon-space"></div>
+        </div>
+        
+        <p>Are you sure you want to finish the section and submit your answers?</p>
+        <div class="confirm-buttons">
+            <button id="confirm-finish-btn">Finish</button>
+            <button id="confirm-cancel-btn">Cancel</button>
+        </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Second Confirmation Popup -->
+<div id="final-confirm-popup" class="confirm-popup-overlay hidden">
+    
+  <div class="confirm-popup">
+    <div class="confirmation-top-box">Confirm Finish</div>
+    <div class="confirm-main-view">
+        <div class="finished-icon">
+            <div class="finished-icon-space"></div>
+            <div class="question-icons">
+                
+            </div>
+            <div class="finished-icon-space"></div>
+        </div>
+        <p>This action is final. Do you really want to finish the section ?</p>
+        
+        <div class="confirm-buttons">
+            <button id="final-confirm-yes-btn">Yes</button>
+            <button id="final-confirm-no-btn">No</button>
+        </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

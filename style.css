@@ -1,0 +1,424 @@
+/* Universal Box-sizing for consistent layout */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Ensure HTML and Body fill the entire viewport */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 99%;
+    max-width: 1500px;
+    margin: 10px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:  black;
+    color: white;
+    padding: 10px 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    flex-shrink: 0;
+    flex-wrap: wrap; 
+    gap: 10px;
+}
+
+.header-left,
+.header-right,
+.header-center {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-left span,
+.header-center span,
+.header-right span {
+    font-size: 14px;
+}
+
+.header-center {
+    text-align: center;
+    flex-grow: 1; 
+}
+
+#timer {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.finish-btn {
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+/* Test Info */
+.test-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #446933;
+    color:white;
+    padding: 5px 20px;
+    border-bottom: 1px solid #ccc;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.candidate-info {
+    font-size: 16px;
+    font-weight: bold;
+}
+.test-title{
+    font-size: 16px;
+    
+}
+/* Main Content */
+.main-content {
+    display: flex;
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-left: 90px;  /* content ले fixed sidebar छेउमा नअडियोस् भनी */
+}
+
+/* Fixed sidebar for question navigation */
+.fixed-sidebar {
+    position: fixed;
+    top: 120px; /* header र test-info को उचाइ अनुसार मिलाउनुहोस् */
+    left: 20px;
+    height: calc(100vh - 140px); /* full height minus header/footer */
+  
+    z-index: 999;
+}
+
+.question-navigation {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.question-nav-btn {
+    background-color:  #446933;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+}
+
+.question-nav-btn.active {
+    position: relative;
+   
+}
+
+.question-nav-btn.active::after {
+    content: "";
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #446933; /* pointer color = background */
+}
+
+/* Answered questions */
+.question-nav-btn.answered {
+    background-color: rgba(128, 128, 128, 0.968);
+}
+
+.question-area {
+    flex-grow: 1;
+    min-width: 300px;
+}
+
+.question-prompt {
+    background-color: rgba(235, 246, 247, 0.865);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.language-options {
+    margin-top: 10px;
+}
+
+.language-btn {
+    margin-top: 5px;
+    background-color: #fffcfc;
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, 0.703);
+    padding: 5px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+/* Questions and Options */
+.question-item {
+    display: none;
+}
+
+.question-item.active {
+    display: block;
+}
+
+.passage-box {
+    background-color: #f3f7fa;
+    padding: 5px;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+.passage-box p {
+    margin: 0;
+}
+
+.answer-options {
+    margin-top: 20px;
+}
+
+.option-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.option-box:hover {
+    background-color: #ffe5cc;
+    border-color: orange;
+}
+
+.option-box input[type="radio"] {
+    display: none;
+}
+
+.option-box:has(input[type="radio"]:checked) {
+    background-color:#ffe5cc;
+    color: black;
+    border-color: orange;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: black;
+    padding: 10px 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+.footer-buttons button {
+    background-color: green;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/* Media Queries for full responsiveness */
+@media (max-width: 992px) {
+    .container {
+        width: 98%;
+        margin: 5px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .question-navigation.fixed-sidebar {
+        position: static;
+        height: auto;
+        margin-bottom: 10px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    .question-navigation {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        margin-right: 0;
+        margin-bottom: 10px;
+        flex-wrap: wrap; 
+        gap: 5px;
+    }
+
+    .question-nav-btn {
+        flex-grow: 1;
+        text-align: center;
+        margin: 2px;
+    }
+    
+    .footer {
+        justify-content: center;
+    }
+    
+    .test-info {
+        display: none;
+    }
+    
+    .header-center {
+        text-align: left;
+    }
+}
+
+#question-heading {
+    display: inline;
+}
+
+.footer-buttons button:disabled {
+    background-color: #9e9e9e;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+.confirm-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.confirm-main-view {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  max-width: 400px;
+  text-align: center;
+  font-size: 16px;
+}
+.confirmation-top-box{
+    background-color: black;
+    color:white;
+    padding:5px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+
+.confirm-buttons {
+  margin-top: 20px;
+}
+
+.confirm-buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#confirm-finish-btn {
+  background-color:#00796b;
+  color: white;
+}
+
+#confirm-cancel-btn {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+#final-confirm-yes-btn{
+    background-color: #00796b;
+    color:white;
+}
+#final-confirm-no-btn{
+    background-color: #d32f2f;
+    color:white;
+}
+
+.fa-question {
+      background-color: green;      /* Circle background color */
+      color: white;                 /* Icon color */
+      border-radius: 50%;           /* Makes the shape a circle */
+      width: 60px;                  /* Width of the circle */
+      height: 60px;                 /* Height of the circle */
+      display: flex;                /* Enables flexbox */
+      align-items: center;          /* Vertically centers the icon */
+      justify-content: center;      /* Horizontally centers the icon */
+      font-size: 24px; /* Icon size */
+    }
+
+.finished-icon{
+    display: flex;
+    justify-content: space-evenly;
+}
+.finished-icon-space{
+    width: 2opx;
+    height: 10px;
+}
+.question-icons{
+    width: 60px;
+      height: 60px;
+      background-image: url(logos.png);
+      background-size: cover;
+     
+
+}
